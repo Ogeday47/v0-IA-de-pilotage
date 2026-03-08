@@ -7,8 +7,8 @@ const _geist = Geist({ subsets: ["latin"] });
 const _geistMono = Geist_Mono({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: 'RenewFlow - Pilotez vos renouvellements clients',
-  description: 'Pilotez vos échéances, relances et revenus récurrents dans un seul outil intelligent. La solution IA pour les entreprises à abonnement.',
+  title: 'Tableau de bord | RenewFlow',
+  description: 'Gérez vos abonnements clients, suivez les échéances de paiement et optimisez vos revenus récurrents avec RenewFlow.',
   generator: 'v0.app',
   icons: {
     icon: [
