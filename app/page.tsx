@@ -5,6 +5,7 @@ import { Solution } from "@/components/landing/solution"
 import { AIFeatures } from "@/components/landing/ai-features"
 import { DashboardPreview } from "@/components/landing/dashboard-preview"
 import { UseCases } from "@/components/landing/use-cases"
+import { Testimonials } from "@/components/landing/testimonials"
 import { Pricing } from "@/components/landing/pricing"
 import { FAQ } from "@/components/landing/faq"
 import { FinalCTA } from "@/components/landing/final-cta"
@@ -20,6 +21,7 @@ export default function Home() {
       <AIFeatures />
       <DashboardPreview />
       <UseCases />
+      <Testimonials />
       <Pricing />
       <FAQ />
       <FinalCTA />
