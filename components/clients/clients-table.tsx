@@ -1,6 +1,7 @@
 "use client"
 
 import { useState } from "react"
+import Link from "next/link"
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
 import { Avatar, AvatarFallback } from "@/components/ui/avatar"
@@ -259,17 +260,17 @@ export function ClientsTable() {
                     />
                   </TableCell>
                   <TableCell>
-                    <div className="flex items-center gap-3">
+                    <Link href={`/clients/${client.id}`} className="flex items-center gap-3 group/link">
                       <Avatar className="h-9 w-9 border border-border/60">
                         <AvatarFallback className="bg-muted text-xs font-semibold text-muted-foreground">
                           {getInitials(client.name)}
                         </AvatarFallback>
                       </Avatar>
                       <div className="flex flex-col">
-                        <span className="font-medium text-foreground">{client.name}</span>
+                        <span className="font-medium text-foreground group-hover/link:underline">{client.name}</span>
                         <span className="text-xs text-muted-foreground">{client.email}</span>
                       </div>
-                    </div>
+                    </Link>
                   </TableCell>
                   <TableCell>
                     <span className="font-medium text-foreground">{client.company}</span>
@@ -308,9 +309,11 @@ export function ClientsTable() {
                         </Button>
                       </DropdownMenuTrigger>
                       <DropdownMenuContent align="end" className="w-48">
-                        <DropdownMenuItem className="gap-2">
-                          <Eye className="h-4 w-4 text-muted-foreground" />
-                          Voir les détails
+                        <DropdownMenuItem asChild className="gap-2">
+                          <Link href={`/clients/${client.id}`}>
+                            <Eye className="h-4 w-4 text-muted-foreground" />
+                            Voir les détails
+                          </Link>
                         </DropdownMenuItem>
                         <DropdownMenuItem className="gap-2">
                           <Pencil className="h-4 w-4 text-muted-foreground" />
