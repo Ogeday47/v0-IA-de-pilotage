@@ -1,3 +1,4 @@
+import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { Check, ArrowRight, Sparkles } from "lucide-react"
 
@@ -138,9 +139,12 @@ export function Pricing() {
                     : 'bg-foreground hover:bg-foreground/90 text-background'
                 }`}
                 size="lg"
+                asChild
               >
-                {plan.cta}
-                <ArrowRight className="h-4 w-4" />
+                <Link href="/connexion">
+                  {plan.cta}
+                  <ArrowRight className="h-4 w-4" />
+                </Link>
               </Button>
             </div>
           ))}

@@ -1,3 +1,4 @@
+import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { ArrowRight, CheckCircle } from "lucide-react"
 
@@ -38,16 +39,20 @@ export function FinalCTA() {
                 <Button 
                   size="lg" 
                   className="h-14 px-8 text-base gap-2.5 bg-accent hover:bg-accent/90 text-accent-foreground shadow-xl shadow-accent/30"
+                  asChild
                 >
-                  Démarrer votre essai gratuit
-                  <ArrowRight className="h-4 w-4" />
+                  <Link href="/connexion">
+                    Démarrer votre essai gratuit
+                    <ArrowRight className="h-4 w-4" />
+                  </Link>
                 </Button>
                 <Button 
                   size="lg" 
                   variant="outline"
                   className="h-14 px-8 text-base border-2 border-background/20 bg-transparent text-background hover:bg-background/10 hover:border-background/30"
+                  asChild
                 >
-                  Parler à un expert
+                  <Link href="/connexion">Parler à un expert</Link>
                 </Button>
               </div>
 

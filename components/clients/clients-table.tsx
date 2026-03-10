@@ -1,6 +1,7 @@
 "use client"
 
 import { useState } from "react"
+import Link from "next/link"
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
 import { Avatar, AvatarFallback } from "@/components/ui/avatar"
@@ -308,9 +309,11 @@ export function ClientsTable() {
                         </Button>
                       </DropdownMenuTrigger>
                       <DropdownMenuContent align="end" className="w-48">
-                        <DropdownMenuItem className="gap-2">
-                          <Eye className="h-4 w-4 text-muted-foreground" />
-                          Voir les détails
+                        <DropdownMenuItem className="gap-2" asChild>
+                          <Link href={`/clients/${client.id}`}>
+                            <Eye className="h-4 w-4 text-muted-foreground" />
+                            Voir les détails
+                          </Link>
                         </DropdownMenuItem>
                         <DropdownMenuItem className="gap-2">
                           <Pencil className="h-4 w-4 text-muted-foreground" />

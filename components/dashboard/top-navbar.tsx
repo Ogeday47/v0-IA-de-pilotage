@@ -1,6 +1,7 @@
 "use client"
 
 import { useState } from "react"
+import { useRouter } from "next/navigation"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
@@ -14,30 +15,25 @@ import {
 } from "@/components/ui/dropdown-menu"
 import { Search, Bell, Plus, User, Settings, LogOut, Command, Menu } from "lucide-react"
 import { Badge } from "@/components/ui/badge"
-import {
-  Sheet,
-  SheetContent,
-  SheetTrigger,
-} from "@/components/ui/sheet"
+import { useSidebar } from "@/components/dashboard/sidebar-context"
 
 export function TopNavbar() {
   const [hasNotifications] = useState(true)
   const [notificationCount] = useState(3)
+  const { toggleMobile } = useSidebar()
+  const router = useRouter()
+
+  const handleLogout = () => {
+    router.push("/accueil")
+  }
 
   return (
     <header className="sticky top-0 z-30 flex h-16 items-center justify-between border-b border-border/60 bg-card/95 px-4 backdrop-blur-sm lg:px-6">
-      {/* Mobile Menu */}
-      <Sheet>
-        <SheetTrigger asChild>
-          <Button variant="ghost" size="icon" className="lg:hidden">
-            <Menu className="h-5 w-5" />
-            <span className="sr-only">Menu</span>
-          </Button>
-        </SheetTrigger>
-        <SheetContent side="left" className="w-[260px] p-0">
-          {/* Mobile menu content would go here */}
-        </SheetContent>
-      </Sheet>
+      {/* Mobile Menu Button */}
+      <Button variant="ghost" size="icon" className="lg:hidden" onClick={toggleMobile}>
+        <Menu className="h-5 w-5" />
+        <span className="sr-only">Menu</span>
+      </Button>
 
       {/* Search */}
       <div className="relative hidden w-full max-w-md lg:block">
@@ -122,7 +118,7 @@ export function TopNavbar() {
               Paramètres
             </DropdownMenuItem>
             <DropdownMenuSeparator />
-            <DropdownMenuItem className="gap-2 text-destructive focus:text-destructive">
+            <DropdownMenuItem className="gap-2 text-destructive focus:text-destructive" onClick={handleLogout}>
               <LogOut className="h-4 w-4" />
               Déconnexion
             </DropdownMenuItem>

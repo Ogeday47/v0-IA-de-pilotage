@@ -1,3 +1,4 @@
+import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { ArrowRight, Play, Users, TrendingUp, CalendarCheck, Zap } from "lucide-react"
 
@@ -41,13 +42,17 @@ export function Hero() {
           </p>
           
           <div className="mt-12 flex flex-col sm:flex-row items-center justify-center gap-4">
-            <Button size="lg" className="h-14 px-8 text-base gap-2.5 bg-foreground hover:bg-foreground/90 text-background shadow-xl shadow-foreground/10">
-              Demander une démo gratuite
-              <ArrowRight className="h-4 w-4" />
+            <Button size="lg" className="h-14 px-8 text-base gap-2.5 bg-foreground hover:bg-foreground/90 text-background shadow-xl shadow-foreground/10" asChild>
+              <Link href="/connexion">
+                Demander une démo gratuite
+                <ArrowRight className="h-4 w-4" />
+              </Link>
             </Button>
-            <Button size="lg" variant="outline" className="h-14 px-8 text-base gap-2.5 border-2 hover:bg-muted">
-              <Play className="h-4 w-4" />
-              Voir le produit en action
+            <Button size="lg" variant="outline" className="h-14 px-8 text-base gap-2.5 border-2 hover:bg-muted" asChild>
+              <Link href="/connexion">
+                <Play className="h-4 w-4" />
+                Voir le produit en action
+              </Link>
             </Button>
           </div>
           

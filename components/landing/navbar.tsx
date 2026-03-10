@@ -1,6 +1,7 @@
 "use client"
 
 import { useState, useEffect } from "react"
+import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { Menu, X, ArrowRight } from "lucide-react"
 
@@ -50,12 +51,14 @@ export function Navbar() {
           </div>
 
           <div className="hidden lg:flex items-center gap-4">
-            <Button variant="ghost" size="sm" className="text-background/80 hover:text-background hover:bg-background/10">
-              Connexion
+            <Button variant="ghost" size="sm" className="text-background/80 hover:text-background hover:bg-background/10" asChild>
+              <Link href="/connexion">Connexion</Link>
             </Button>
-            <Button size="sm" className="bg-accent hover:bg-accent/90 text-accent-foreground gap-2 shadow-lg shadow-accent/25">
-              Demander une démo
-              <ArrowRight className="h-3.5 w-3.5" />
+            <Button size="sm" className="bg-accent hover:bg-accent/90 text-accent-foreground gap-2 shadow-lg shadow-accent/25" asChild>
+              <Link href="/connexion">
+                Demander une démo
+                <ArrowRight className="h-3.5 w-3.5" />
+              </Link>
             </Button>
           </div>
 
@@ -87,12 +90,14 @@ export function Navbar() {
                 FAQ
               </a>
               <div className="flex flex-col gap-3 pt-5 border-t border-background/10">
-                <Button variant="ghost" className="justify-start text-background/80 hover:text-background hover:bg-background/10">
-                  Connexion
+                <Button variant="ghost" className="justify-start text-background/80 hover:text-background hover:bg-background/10" asChild>
+                  <Link href="/connexion">Connexion</Link>
                 </Button>
-                <Button className="bg-accent hover:bg-accent/90 text-accent-foreground gap-2">
-                  Demander une démo
-                  <ArrowRight className="h-3.5 w-3.5" />
+                <Button className="bg-accent hover:bg-accent/90 text-accent-foreground gap-2" asChild>
+                  <Link href="/connexion">
+                    Demander une démo
+                    <ArrowRight className="h-3.5 w-3.5" />
+                  </Link>
                 </Button>
               </div>
             </div>
