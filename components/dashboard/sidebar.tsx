@@ -1,7 +1,7 @@
 "use client"
 
 import Link from "next/link"
-import { usePathname } from "next/navigation"
+import { usePathname, useRouter } from "next/navigation"
 import { cn } from "@/lib/utils"
 import {
   LayoutDashboard,
@@ -19,7 +19,7 @@ import {
 import { Badge } from "@/components/ui/badge"
 
 const mainNavItems = [
-  { href: "/", label: "Tableau de bord", icon: LayoutDashboard },
+  { href: "/dashboard", label: "Tableau de bord", icon: LayoutDashboard },
   { href: "/clients", label: "Clients", icon: Users, badge: "247" },
   { href: "/echeances", label: "Échéances", icon: CalendarClock, badge: "34" },
   { href: "/relances", label: "Relances", icon: Bell, badge: "8", badgeVariant: "destructive" as const },
@@ -34,6 +34,11 @@ const secondaryNavItems = [
 
 export function DashboardSidebar() {
   const pathname = usePathname()
+  const router = useRouter()
+
+  const handleLogout = () => {
+    router.push("/")
+  }
 
   return (
     <>
@@ -143,7 +148,10 @@ export function DashboardSidebar() {
 
         {/* Footer */}
         <div className="border-t border-border/60 p-3">
-          <button className="flex w-full items-center gap-3 rounded-lg px-3 py-2.5 text-sm font-medium text-muted-foreground transition-colors hover:bg-muted hover:text-foreground">
+          <button 
+            onClick={handleLogout}
+            className="flex w-full items-center gap-3 rounded-lg px-3 py-2.5 text-sm font-medium text-muted-foreground transition-colors hover:bg-muted hover:text-foreground"
+          >
             <LogOut className="h-[18px] w-[18px]" />
             Déconnexion
           </button>
