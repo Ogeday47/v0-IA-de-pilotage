@@ -162,7 +162,7 @@ export function DashboardSidebar() {
 
   const handleLogout = () => {
     // Redirect to landing page on logout
-    router.push("/accueil")
+    router.push("/")
   }
 
   return (

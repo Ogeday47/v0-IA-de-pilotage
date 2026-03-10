@@ -24,7 +24,7 @@ export function TopNavbar() {
   const router = useRouter()
 
   const handleLogout = () => {
-    router.push("/accueil")
+    router.push("/")
   }
 
   return (
